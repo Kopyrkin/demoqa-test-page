@@ -5,9 +5,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 
-public class SimpleTest {
+public class Junit5Tests {
     @BeforeEach
     void openYandexPage() {
         Selenide.open("https://ya.ru");
