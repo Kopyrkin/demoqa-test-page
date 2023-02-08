@@ -6,31 +6,33 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
     @BeforeAll
     static void setUp() {
-        Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
 
     @Test
     void fillFormTest() {
+        open("/automation-practice-form");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         String firstName = "Alexander";
         String lastName = "Kop";
         String gender = "Male";
         String email = "Alex1234@mail.ru";
         String phone = "1234567890";
         String subject = "Biology";
-        String imagePath = "Avatar.jpeg";
+        String imagePath = "img/Avatar.jpeg";
         String address = "Komsa street 11, 15 apt.";
         String state = "Haryana";
         String city = "Karnal";
 
-        open("/automation-practice-form");
+
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
